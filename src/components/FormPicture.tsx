@@ -1,17 +1,24 @@
 import React from 'react';
-import './../App.scss'
-type FormPicture = {
-    webAddress: string
-    title: string
-
+import './../App.scss';
+interface FormPicture {
+	webAddress: string;
+	title: string;
+	isShow: boolean;
 }
-const FormPicture: React.FC<FormPicture> = ({webAddress, title}) => {
-    return (
-        <>
-            <img className='image' src={webAddress} alt={title}/>
-        </>
-    )
-}
-
-
-export default FormPicture;
+export const FormPicture: React.FC<FormPicture> = ({
+	webAddress,
+	title,
+	isShow,
+}) => {
+	return (
+		<>
+			{!isShow ? (
+				<span className="default-picture">
+					If you win, you'll see amazing picture
+				</span>
+			) : (
+				<img className="tile" src={webAddress} alt={title} />
+			)}
+		</>
+	);
+};

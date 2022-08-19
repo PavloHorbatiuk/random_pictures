@@ -1,9 +1,35 @@
-$primary-color: #282c34;
+$primary-color: #001232;
 $secondary-color: #61dafb;
-
-// fonts
+$tile-bg: #a1aed4;
+$font-color: #dbe2fb; // fonts
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap');
-body{
-  margin: 0;
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	color: $font-color;
+	line-height: 28px;
+	overflow-x: hidden;
+	font-family: 'Open Sans', sans-serif;
+	background: $primary-color;
+}
+button {
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	border-radius: 20px;
+	text-transform: uppercase;
+	color: $font-color;
+	font-weight: 700;
+	padding: 17px 35px;
+	display: inline-flex;
+	align-items: center;
+}
+button:hover {
+	color: red;
+}
+.container {
+	max-width: 1240px;
+	margin: auto;
+	height: 100%;
+	position: relative;
 }

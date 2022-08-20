@@ -1,7 +1,9 @@
 $primary-color: #001232;
 $secondary-color: #61dafb;
 $tile-bg: #a1aed4;
-$font-color: #dbe2fb; // fonts
+$font-color: #dbe2fb;
+$layout-breakpoint-small: 640px;
+// fonts
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap');
 body {

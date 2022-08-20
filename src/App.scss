@@ -11,6 +11,15 @@
 		display: flex;
 		position: relative;
 		flex-direction: row;
+
+		@media (max-width: $layout-breakpoint-small) {
+			.content {
+				display: flex;
+				position: relative;
+				flex-direction: column;
+				height: auto;
+			}
+		}
 	}
 	.btn {
 		margin-top: 10px;
@@ -37,13 +46,14 @@
 	height: 200px;
 	margin: 5px;
 	width: 200px;
+	border: 2px solid rgba(255, 255, 255, 0.2);
+	@media (max-width: $layout-breakpoint-small) {
+	}
 }
 
-// Loop from 1-12.
 @for $i from 1 through 12 {
 	.tile {
 		&:nth-child(#{$i}) {
-			// Delay the animation. Delay increases as items loop.
 			animation-delay: $i * (0.03s);
 		}
 	}
@@ -98,4 +108,18 @@
 	margin-bottom: 15px;
 	text-align: center;
 	align-items: center;
+}
+@media (max-width: $layout-breakpoint-small) {
+	.default-picture {
+		height: 150px;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 400;
+	}
+	.tile {
+		height: 150px;
+	}
+	h1 {
+		font-size: 20px;
+	}
 }

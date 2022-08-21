@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { FormPicture } from './components/FormPicture';
 import { usePictureDetails } from './hooks/usePictureDetails';
 import './variables.scss';
@@ -13,11 +13,7 @@ enum randomPictures {
 function App() {
 	const { getRandomNum, isShow, isLoading, error } = usePictureDetails();
 	const takeNum = () => getRandomNum();
-	const timeIsLoading = error ? (
-		<span>Ooops!!!, sorry something going wrong</span>
-	) : (
-		<span>Matching...</span>
-	);
+	const inTimeOfLoading = error ? 'Something went wrong ' : 'Matching...';
 
 	return (
 		<div className="wrapper">
@@ -42,7 +38,7 @@ function App() {
 						/>
 					</div>
 				</div>
-				{isLoading ? timeIsLoading : null}
+				<span className="span">{isLoading && inTimeOfLoading}</span>
 				<button disabled={isLoading} className=" btn" onClick={takeNum}>
 					Throw
 				</button>

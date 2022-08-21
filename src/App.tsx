@@ -4,12 +4,15 @@ import { usePictureDetails } from './hooks/usePictureDetails';
 import './variables.scss';
 import './App.scss';
 
+enum randomPictures {
+	lorem1 = 'https://loremflickr.com/320/240/paris,girl/all',
+	lorem2 = 'https://loremflickr.com/320/240/brazil,rio',
+	lorem3 = 'https://loremflickr.com/g/320/240/paris,girl/all',
+}
+
 function App() {
 	const { getRandomNum, isShow, isLoading, error } = usePictureDetails();
 	const takeNum = () => getRandomNum();
-	const loremPicture = 'https://loremflickr.com/320/240/paris,girl/all';
-	const loremPicture2 = 'https://loremflickr.com/320/240/brazil,rio';
-	const loremPicture3 = 'https://loremflickr.com/g/320/240/paris,girl/all';
 	const timeIsLoading = error ? (
 		<span>Ooops!!!, sorry something going wrong</span>
 	) : (
@@ -24,28 +27,25 @@ function App() {
 					<div className=" content tiles">
 						<FormPicture
 							isShow={isShow}
-							webAddress={loremPicture}
+							webAddress={randomPictures.lorem1}
 							title={'picture - 1'}
 						/>
 						<FormPicture
 							isShow={isShow}
-							webAddress={loremPicture2}
+							webAddress={randomPictures.lorem2}
 							title={'picture - 2'}
 						/>
 						<FormPicture
 							isShow={isShow}
-							webAddress={loremPicture3}
+							webAddress={randomPictures.lorem3}
 							title={'picture - 3'}
 						/>
 					</div>
 				</div>
-				{isLoading ? (
-					timeIsLoading
-				) : (
-					<button disabled={isLoading} className=" btn" onClick={takeNum}>
-						Throw
-					</button>
-				)}
+				{isLoading ? timeIsLoading : null}
+				<button disabled={isLoading} className=" btn" onClick={takeNum}>
+					Throw
+				</button>
 			</div>
 		</div>
 	);
